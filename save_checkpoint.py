@@ -1,5 +1,6 @@
 # this function is to save a checkpoint for the trained model
-def checkpoint():
+def checkpoint(save_dir):
+    save_path = save_dir + '/checkpoint.pth'
     model.class_to_idx = train_datasets.class_to_idx
     model.cpu()
     checkpoint = {'arch': user_inputs.arch,
@@ -9,5 +10,5 @@ def checkpoint():
                   'class_to_idx': model.class_to_idx,
                   'epoch': epochs,
                   'loss': loss}
-    torch.save(checkpoint, 'checkpoint.pth')
+    torch.save(checkpoint, save_path)
     print("The model has been saved")
