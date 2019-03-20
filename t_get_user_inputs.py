@@ -21,7 +21,7 @@ import argparse as arg
 #       in the return statement with parser.parse_args() parsed argument
 #       collection that you created with this function
 #
-def get_user_inputs():
+def t_get_user_inputs():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's
