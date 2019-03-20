@@ -5,4 +5,4 @@ trainloader, validloader, testloader = create_dataloader(user_inputs.dir)
 # create the model to be trained
 model = create_model(user_inputs.arch, user_inputs.hidden_units)
 # training the model and save it as checkpoint
-train_model(trainloader, validloader, model, user_inputs.epochs, user_inputs.learning_rate, user_inputs.device)
+save_path = train_model(trainloader, validloader, model, user_inputs.epochs, user_inputs.learning_rate, user_inputs.device)
