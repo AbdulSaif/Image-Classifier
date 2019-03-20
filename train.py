@@ -64,4 +64,5 @@ def train_model(trainloader, validloader, model, epochs, learning_rate, device):
                   "Test Accuracy: {:.3f}".format(accuracy/len(validloader)))
 
     # save the model checkpoint
-    checkpoint()
+    save_path = checkpoint()
+    return save_path
