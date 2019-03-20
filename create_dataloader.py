@@ -1,5 +1,5 @@
 # this function takes a datasets and then process it in away to apply transforamtions to help the model train and validate better
-def transforms(dataset_dir):
+def create_dataloader(dataset_dir):
     train_dir = dataset_dir + '/train'
     valid_dir = dataset_dir + '/valid'
     test_dir = dataset_dir + '/test'
