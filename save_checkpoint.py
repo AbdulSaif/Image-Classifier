@@ -12,3 +12,4 @@ def checkpoint(save_dir):
                   'loss': loss}
     torch.save(checkpoint, save_path)
     print("The model has been saved")
+    return save_path
