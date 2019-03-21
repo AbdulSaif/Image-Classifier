@@ -21,7 +21,7 @@ import argparse as arg
 #       in the return statement with parser.parse_args() parsed argument
 #       collection that you created with this function
 #
-def t_get_user_inputs():
+def p_get_user_inputs():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's
@@ -36,7 +36,7 @@ def t_get_user_inputs():
     Parameters:
      None - simply using argparse module to create & store command line arguments
     Returns:
-     parse_args() -data structure that stores the command line arguments object  
+     parse_args() -data structure that stores the command line arguments object
     """
     # Create Parse using ArgumentParser
     parser = arg.ArgumentParser()
@@ -48,7 +48,7 @@ def t_get_user_inputs():
     # Argument 4: Which CNN model architecture to be used
     parser.add_argument('--category_names', type = str, default = 'cat_to_name.json', help = 'the naming used for classification')
     # Argument 8: is gpu required to train the model
-    parser.add_argument('--device', type = str, 'cpu', help = 'is gpu/cpu required to train the model')
+    parser.add_argument('--device', type = str, default = 'cpu', help = 'is gpu/cpu required to train the model')
 
     # Replace None with parser.parse_args() parsed argument collection that
     # you created with this function

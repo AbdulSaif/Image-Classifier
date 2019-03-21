@@ -54,7 +54,7 @@ def t_get_user_inputs():
     # Argument 7: the size of epochs to be used for training
     parser.add_argument('--epochs', type = float, default = 5, help = 'the size of epochs to be used for training')
     # Argument 8: is gpu required to train the model
-    parser.add_argument('--gpu', type = str, 'cpu' = 0.01, help = 'is gpu required to train the model')
+    parser.add_argument('--device', type = str, default = 'cpu', help = 'is gpu/cpu required to train the model')
 
     # Replace None with parser.parse_args() parsed argument collection that
     # you created with this function
