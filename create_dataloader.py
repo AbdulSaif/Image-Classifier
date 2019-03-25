@@ -4,6 +4,9 @@ def create_dataloader(dataset_dir):
     valid_dir = dataset_dir + '/valid'
     test_dir = dataset_dir + '/test'
 
+    import torch
+    from torchvision import datasets, models, transforms
+
     # TODO: Define your transforms for the training, validation, and testing sets
     train_transforms = transforms.Compose([transforms.RandomRotation(30),
                                            transforms.RandomResizedCrop(224),
@@ -28,4 +31,5 @@ def create_dataloader(dataset_dir):
     validloader = torch.utils.data.DataLoader(valid_datasets, batch_size = 32, shuffle = True)
     testloader = torch.utils.data.DataLoader(test_datasets, batch_size = 32, shuffle = True)
 
+    print("All dataloaders are created")
     return trainloader, validloader, testloader
