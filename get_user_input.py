@@ -21,7 +21,7 @@ import argparse as arg
 #       in the return statement with parser.parse_args() parsed argument
 #       collection that you created with this function
 #
-def get_mode_user_inputs():
+def get_user_inputs():
     """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's
@@ -43,9 +43,31 @@ def get_mode_user_inputs():
     # Create 3 command line arguments as mentioned above using add_argument() from ArguementParser method
     # Argument 1: folder's path
     parser.add_argument('--mode', type = str, default = 'train', help = 'train or predict mode')
+    # Argument 1: folder's path
+    parser.add_argument('--dir', type = str, default = 'flowers/', help = 'flower images folder\'s path')
+    # Argument 2: checkpoint folder's path
+    parser.add_argument('--save_dir', type = str, default = 'ImageClassifier/', help = 'Where to save the checkpoint - folder\'s path')
+    # Argument 4: Which CNN model architecture to be used
+    parser.add_argument('--arch', type = str, default = 'vgg', help = 'Which CNN model architecture to be used')
+    # Argument 5: the the learning rate you need to use to train the model
+    parser.add_argument('--learning_rate', type = float, default = 0.01, help = 'Learning rate to train the selected model')
+    # Argument 6: the size of hiddden layer to be used in the classifier
+    parser.add_argument('--hidden_units', type = float, default = 512, help = 'size of hiddden layer to be used in the classifier')
+    # Argument 7: the size of epochs to be used for training
+    parser.add_argument('--epochs', type = float, default = 5, help = 'the size of epochs to be used for training')
+    # Argument 8: is gpu required to train the model
+    parser.add_argument('--device', type = str, default = 'cpu', help = 'is gpu/cpu required to train the model')
+    # Argument 1: folder's path
+    parser.add_argument('--image_path', type = str, default = 'flowers/test/1/image_06743.jpg', help = 'flower image required for classification')
+    # Argument 2: checkpoint folder's path
+    parser.add_argument('--checkpoint_path', type = str, default = 'checkpoint.pth', help = 'checkpoint to load path')
+    # Argument 4: Which CNN model architecture to be used
+    parser.add_argument('--category_names', type = str, default = 'cat_to_name.json', help = 'the naming used for classification')
+    # Argument 8: is gpu required to train the model
 
     # Replace None with parser.parse_args() parsed argument collection that
     # you created with this function
+    print("All inputs are taken")
     user_input = parser.parse_args()
 
     return user_input
