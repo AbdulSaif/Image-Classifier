@@ -12,7 +12,7 @@ def create_model(arch, hidden_size):
         model = models.vgg16(pretrained = True)
     elif arch == 'alexnet':
         model = models.alexnet(pretrained = True)
-    elif arch == 'resnet18':
+    elif arch == 'resnet':
         model = models.resnet18(pretrained = True)
 
     # freezing model features and apply backpropagation to classifier only
