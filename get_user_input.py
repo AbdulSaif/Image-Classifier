@@ -33,6 +33,7 @@ def get_user_inputs():
            prediction as --checkpoint_path the default is 'Checkpoint/checkpoint.pth'
        11. The file that will be used to convert the labels to meaningful
            flowers name as --category_names with default value as 'label_to_name.json'
+       12. The number of top classes to be displayed --top_k with defualt value of '3'
     This function returns these arguments as an ArgumentParser object.
     Parameters:
      None - simply using argparse module to create & store command line arguments
@@ -63,7 +64,8 @@ def get_user_inputs():
     parser.add_argument('--checkpoint_path', type = str, default = 'Checkpoint/checkpoint.pth', help = 'The saved model path to be loaded for resuming training or for prediction')
     # Argument 11: The file that will be used to convert the labels to meaningful flowers name
     parser.add_argument('--category_names', type = str, default = 'label_to_name.json', help = 'The file that will be used to convert the labels to meaningful flowers name ')
-
+    # Argument 12: The number of top classes to be displayed
+    parser.add_argument('--top_k', type = float, default = 3, help = 'The number of top classes to be displayed')
     # compile all parser argument and store it in local variable
     user_inputs = parser.parse_args()
     return user_inputs
