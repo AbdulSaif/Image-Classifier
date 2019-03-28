@@ -1,12 +1,17 @@
+# This function is used to process an image in a specific format so that it can
+# be used by a pretrained model for image classification
 def process_image(image):
-    ''' Scales, crops, and normalizes a PIL image for a PyTorch model,
-        returns an Numpy array
+    ''' This function Scales, crops, and normalizes a PIL image for a PyTorch
+        model usage either for training or classification
+        arguments are: an image file only
+        returns: an Numpy array
     '''
 
+    # Importing required python modeules
     import numpy as np
     import torch
 
-    # TODO: Process a PIL image for use in a PyTorch model
+    # Process a PIL image for use in a PyTorch model
     # importing required PIL and Image library
     from PIL import Image as img
     # open the image for processing
@@ -31,4 +36,5 @@ def process_image(image):
     # setting the color channel to be the first for pytorch
     p_image = p_image.transpose((2, 0, 1))
 
+    # return the processed image so that can be used by the model
     return p_image
