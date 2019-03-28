@@ -2,6 +2,10 @@ def process_image(image):
     ''' Scales, crops, and normalizes a PIL image for a PyTorch model,
         returns an Numpy array
     '''
+
+    import numpy as np
+    import torch
+
     # TODO: Process a PIL image for use in a PyTorch model
     # importing required PIL and Image library
     from PIL import Image as img
