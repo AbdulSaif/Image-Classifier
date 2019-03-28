@@ -1,6 +1,13 @@
-def predict(image_path, model, topk=3):
+def predict(filename, image_path, model, category_names, device, topk=3):
     ''' Predict the class (or classes) of an image using a trained deep learning model.
     '''
+
+    from process_image import process_image
+    import torch
+    from label_mapping import label_mapping
+
+    category_names = label_mapping(filename)
+
     # TODO: Implement the code to predict the class from an image file
     # process the image so that it can be fit in the model
     image = process_image(image_path)
@@ -18,5 +25,5 @@ def predict(image_path, model, topk=3):
     idx_to_class = {val: key for key, val in
                                       model.class_to_idx.items()}
     top_labels = [idx_to_class[lab] for lab in top_lab]
-    top_flowers = [cat_to_name[idx_to_class[lab]] for lab in top_lab]
+    top_flowers = [category_names[idx_to_class[lab]] for lab in top_lab]
     return top_prob, top_labels, top_flowers
