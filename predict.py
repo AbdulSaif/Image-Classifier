@@ -1,14 +1,18 @@
-def predict(filename, image_path, model, category_names, device, topk=3):
-    ''' Predict the class (or classes) of an image using a trained deep learning model.
+def predict(filename, image_path, model, category_names, topk=3):
+    ''' Predict the class (or classes) of an image using a trained deep learning
+        model. The function can classify one image at a time
+        Arguments are: filename, image_path, model, category_names and topk=3
+        Returns: the top class of the image with their probabilities
     '''
 
+    # Importing required python modules
     from process_image import process_image
     import torch
     from label_mapping import label_mapping
 
+    # getting the real flowers name from the labels
     category_names = label_mapping(filename)
 
-    # TODO: Implement the code to predict the class from an image file
     # process the image so that it can be fit in the model
     image = process_image(image_path)
     image = torch.from_numpy(image).type(torch.FloatTensor).unsqueeze_(0)
@@ -26,4 +30,6 @@ def predict(filename, image_path, model, category_names, device, topk=3):
                                       model.class_to_idx.items()}
     top_labels = [idx_to_class[lab] for lab in top_lab]
     top_flowers = [category_names[idx_to_class[lab]] for lab in top_lab]
+
+    # returns the top class of the image with their probabilities
     return top_prob, top_labels, top_flowers
