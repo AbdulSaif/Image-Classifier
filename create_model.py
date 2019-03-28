@@ -1,13 +1,15 @@
-# this function creates the model and modify it based on user inputs
-def create_model(arch, hidden_size):
+# this function creates a CNN arch model and modify it based on user inputs
+# including arch, hidden layer size, learning rate and numebr of epochs
 
+def create_model(arch, hidden_size):
+    # Importing required python module
     import torch
     from torch import nn
     from torch import optim
     import torch.nn.functional as F
     from torchvision import datasets, models, transforms
 
-    # TODO: Build and train your network
+    # Defining the model arch
     if arch == 'vgg':
         model = models.vgg16(pretrained = True)
     elif arch == 'alexnet':
@@ -19,6 +21,7 @@ def create_model(arch, hidden_size):
     for param in model.parameters():
         param.requires_grad = False
 
+    # Modifying classifier to match required user inputs
     from collections import OrderedDict
     if arch == 'vgg':
         classifier = nn.Sequential(OrderedDict([('fc1', nn.Linear(25088,hidden_size)),
@@ -38,8 +41,8 @@ def create_model(arch, hidden_size):
                                                 ('dropout', nn.Dropout(p = 0.2)),
                                                 ('fc2', nn.Linear(hidden_size,102)),
                                                 ('output', nn.LogSoftmax(dim = 1))]))
-
+    # storing the new classifier into the model
     model.classifier = classifier
 
-    print("Model created")
+    # returning required model by the user to be used by the main function
     return model
