@@ -9,7 +9,6 @@ from load_checkpoint import load_checkpoint
 from process_image import process_image
 from predict import predict
 
-
 def main():
 # select which mode the user needs
     user_inputs = get_user_inputs()
@@ -26,12 +25,13 @@ def main():
     else:
         # loading the trained model to use it for production
         model = create_model(user_inputs.arch, user_inputs.hidden_units)
-        load_checkpoint = load_checkpoint(user_inputs.checkpoint_path, model,
+        model = load_checkpoint(user_inputs.checkpoint_path, model,
         user_inputs.learning_rate)
         # set the model to evaluation mode
-        checkpoint.eval()
+        model.eval()
         # predict class for single image
-        predict(user_inputs.image_path, user_inputs.checkpoint_path, user_inputs.category_names, user_inputs.device)
+        top_prob, top_labels, top_flowers = predict(user_inputs.category_names, user_inputs.image_path, model, user_inputs.category_names, user_inputs.device)
+        print(top_prob, top_labels, top_flowers)
 
 # Call to main function to run the program
 if __name__ == "__main__":
