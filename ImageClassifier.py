@@ -32,7 +32,7 @@ def main():
         # set the model to evaluation mode for faster prediction
         model.eval()
         # predict top classes (requested by user) for single image and save them as global variables
-        top_prob, top_labels, top_flowers = predict(user_inputs.category_names, user_inputs.image_path, model, user_inputs.category_names)
+        top_prob, top_labels, top_flowers = predict(user_inputs.category_names, user_inputs.image_path, model, user_inputs.category_names, user_inputs.device, user_inputs.top_k)
         # Printing the top classes with its probabilities
         print("The top classification for this flower image are {} wtih probabilities of {}".format(top_flowers, top_prob))
 

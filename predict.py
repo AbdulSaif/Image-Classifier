@@ -1,7 +1,8 @@
-def predict(filename, image_path, model, category_names, topk=3):
+def predict(filename, image_path, model, category_names, device, top_k):
     ''' Predict the class (or classes) of an image using a trained deep learning
         model. The function can classify one image at a time
-        Arguments are: filename, image_path, model, category_names and topk=3
+        Arguments are: filename, image_path, model, category_names, device to be
+        used and top_k
         Returns: the top class of the image with their probabilities
     '''
 
@@ -9,6 +10,12 @@ def predict(filename, image_path, model, category_names, topk=3):
     from process_image import process_image
     import torch
     from label_mapping import label_mapping
+
+    # Use GPU if it's available and required by the user
+    if device == 'gpu':
+        device = torch.device('cuda')
+    else:
+        device = torch.device('cpu')
 
     # getting the real flowers name from the labels
     category_names = label_mapping(filename)
@@ -21,7 +28,7 @@ def predict(filename, image_path, model, category_names, topk=3):
     # convert the log into actual probabilities
     prob = torch.exp(log_prob)
     # get the top 5 probabilities
-    top_prob, top_lab = prob.topk(topk) # get the top 5 results
+    top_prob, top_lab = prob.topk(top_k) # get the top 5 results
     top_prob = top_prob.detach().numpy().tolist()[0]
     top_lab = top_lab.detach().numpy().tolist()[0]
 
