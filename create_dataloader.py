@@ -31,5 +31,4 @@ def create_dataloader(dataset_dir):
     validloader = torch.utils.data.DataLoader(valid_datasets, batch_size = 32, shuffle = True)
     testloader = torch.utils.data.DataLoader(test_datasets, batch_size = 32, shuffle = True)
 
-    print("All dataloaders are created")
-    return trainloader, validloader, testloader
+    return train_datasets, valid_datasets, test_datasets, trainloader, validloader, testloader
