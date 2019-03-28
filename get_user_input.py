@@ -1,17 +1,10 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# */AIPND-revision/intropyproject-classify-pet-images/get_input_args.py
-#
-# PROGRAMMER: Abdul.Saif
-# DATE CREATED: 25/01/2019
-# REVISED DATE:
-# PURPOSE: Create a function that retrieves the following 3 command line inputs
-#          from the user using the Argparse Python module. If the user fails to
-#          provide some or all of the 3 inputs, then the default values are
-#          used for the missing inputs. Command Line Arguments:
-#     1. Image Folder as --dir with default value 'pet_images'
-#     2. CNN Model Architecture as --arch with default value 'vgg'
-#     3. Text File with Dog Names as --dogfile with default value 'dognames.txt'
+# This function  retrieves the following 11 command line inputs from
+# the user using the Argparse Python module. If the user does not
+# provide some or all of the 11 inputs, then the default values are
+# used for the missing inputs. Command Line Arguments:
+# 1. Image Folder as --dir with default value 'pet_images'
+# 2. CNN Model Architecture as --arch with default value 'vgg'
+# 3. Text File with Dog Names as --dogfile with default value 'dognames.txt'
 #
 ##
 # Imports python modules
@@ -56,7 +49,7 @@ def get_user_inputs():
     # Argument 7: the size of epochs to be used for training
     parser.add_argument('--epochs', type = float, default = 5, help = 'the size of epochs to be used for training')
     # Argument 8: is gpu required to train the model
-    parser.add_argument('--device', type = str, default = 'cpu', help = 'is gpu/cpu required to train the model')
+    parser.add_argument('--device', type = str, default = 'gpu', help = 'is gpu/cpu required to train the model')
     # Argument 1: folder's path
     parser.add_argument('--image_path', type = str, default = 'flowers/test/1/image_06743.jpg', help = 'flower image required for classification')
     # Argument 2: checkpoint folder's path
@@ -67,7 +60,5 @@ def get_user_inputs():
 
     # Replace None with parser.parse_args() parsed argument collection that
     # you created with this function
-    print("All inputs are taken")
     user_input = parser.parse_args()
-
     return user_input
