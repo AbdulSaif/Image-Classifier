@@ -19,8 +19,8 @@ def create_model(arch, hidden_size):
         model = models.vgg16(pretrained = True)
     elif arch == 'alexnet':
         model = models.alexnet(pretrained = True)
-    elif arch == 'resnet':
-        model = models.resnet18(pretrained = True)
+    elif arch == 'densenet':
+        model = models.densenet161(pretrained = True)
 
     # freezing model features and apply backpropagation to classifier only
     for param in model.parameters():
@@ -41,7 +41,7 @@ def create_model(arch, hidden_size):
                                                 ('fc2', nn.Linear(hidden_size,102)),
                                                 ('output', nn.LogSoftmax(dim = 1))]))
     else:
-        classifier = nn.Sequential(OrderedDict([('fc1', nn.Linear(25088,hidden_size)),
+        classifier = nn.Sequential(OrderedDict([('fc1', nn.Linear(2208,hidden_size)),
                                                 ('relu', nn.ReLU()),
                                                 ('dropout', nn.Dropout(p = 0.2)),
                                                 ('fc2', nn.Linear(hidden_size,102)),
