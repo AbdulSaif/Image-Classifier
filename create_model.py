@@ -2,6 +2,11 @@
 # including arch, hidden layer size, learning rate and numebr of epochs
 
 def create_model(arch, hidden_size):
+    '''
+        This function is used to create a CNN model using required user inputs
+        Arguments are: CNN arch and size of hidden layer
+        Returns: a model network
+    '''
     # Importing required python module
     import torch
     from torch import nn

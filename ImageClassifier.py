@@ -10,6 +10,36 @@ from predict import predict
 
 # The heart of the program with all the training and prediction happening here
 def main():
+    '''
+        This function/program can be used to train a classification model to classify
+        a datasets if supplied with required datasets. It can be used to train a model
+        or use a pretrained model to classify an image file.
+        Arguments: Are optional and only if user to wants the code to behave a certain
+        way. These arguments includes:
+        1. The train or predict mode as --mode with default value 'train'
+        2. Image Folderc to be used for training, validating and testing
+           as --dir with default value 'flowers/'
+        3. The folder where you want to save the trained model as --save_dir
+           and default value of 'ImageClassifier/'
+        4. The CNN model arch to be used for creating the model as --arhc and
+           the default value is 'vgg'
+        5. The learning rate to be used in the training process as --learning_rate
+           with default value is '0.001'
+        6. The size of the hidden layer to be used as --hidden_units and
+           the default value is '4096'
+        7. The number of epochs to be used in the training as --epochs and
+           the default value is '5'
+        8. The training/prediction to be done using gpu or cpu as --device
+           and the default value is 'gpu'
+        9. Image path that required for class prediction as --image_path
+           and the default is 'flowers/test/1/image_06743.jpg'
+       10. The saved model path to be loaded for resuming training or for
+           prediction as --checkpoint_path the default is 'Checkpoint/checkpoint.pth'
+       11. The file that will be used to convert the labels to meaningful
+           flowers name as --category_names with default value as 'label_to_name.json'
+       12. The number of top classes to be displayed --top_k with defualt value of '3'
+       Retruns: The model train a model or displat top class predictions of an image
+    '''
     # getting user inputs to required parameters and save them to as global variable
     user_inputs = get_user_inputs()
     # Selecting required running mode depending on user inputs to --mode

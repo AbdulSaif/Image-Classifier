@@ -3,6 +3,11 @@
 # layer
 
 def train_model(train_datasets, trainloader, validloader, model, epochs, learning_rate, device, save_dir):
+    '''
+    This function is used to train a model in classification proces
+    Arguments: train_datasets, trainloader, validloader, model, epochs, learning_rate, device, save_dir)
+    Retturns: trained model
+    '''
     # Importing required python modules
     import torch
     from torch import nn

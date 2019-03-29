@@ -3,6 +3,12 @@
 # testing
 
 def create_dataloader(dataset_dir):
+    '''
+        This function uses a datasets to create three seperate datasets that can be used
+        to train, validate and test a model.
+        Arguments: dataset folder
+        Returns: train_datasets, valid_datasets, test_datasets, trainloader, validloader, testloader
+    '''
     # seperating the dataset into train, valid and test datasets
     train_dir = dataset_dir + '/train'
     valid_dir = dataset_dir + '/valid'

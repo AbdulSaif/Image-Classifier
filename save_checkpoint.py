@@ -1,6 +1,12 @@
 # This function takes a trained model with the parameters used to train it and
 # then save it in required folder as 'checkpoint.pth'
 def checkpoint(save_dir, train_datasets, trained_model, arch, epochs):
+    '''
+        This function saves a trained network model and store it in a
+        pre defined folder/location
+        Arguments: save_dir, train_datasets, trained_model, arch, epochs
+        Returns: saved_model
+    '''
     # Importing required python module
     import torch
     # setting the path and file name of where to save the trained model

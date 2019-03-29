@@ -65,7 +65,7 @@ def get_user_inputs():
     # Argument 11: The file that will be used to convert the labels to meaningful flowers name
     parser.add_argument('--category_names', type = str, default = 'label_to_name.json', help = 'The file that will be used to convert the labels to meaningful flowers name ')
     # Argument 12: The number of top classes to be displayed
-    parser.add_argument('--top_k', type = float, default = 3, help = 'The number of top classes to be displayed')
+    parser.add_argument('--top_k', type = int, default = 3, help = 'The number of top classes to be displayed')
     # compile all parser argument and store it in local variable
     user_inputs = parser.parse_args()
     return user_inputs
