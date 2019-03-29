@@ -1,0 +1,13 @@
+1) Deep Learning With PyTorch by Josh Bernhard
+   https://medium.com/@josh_2774/deep-learning-with-pytorch-9574e74d17ad
+   This article really helped me when I was stuck on my prediction module
+2) TRANSFER LEARNING TUTORIAL by Sasank Chilamkurthy
+   https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
+   This article gave me insight about different aspects of transfer_learning
+3) Beginners Ask “How Many Hidden Layers/Neurons to Use in Artificial Neural Networks?”
+   by Ahmed Gad
+   https://towardsdatascience.com/beginners-ask-how-many-hidden-layers-neurons-to-use-in-artificial-neural-networks-51466afa0d3e
+4) Expected stride to be a single integer value or a list?
+   https://discuss.pytorch.org/t/expected-stride-to-be-a-single-integer-value-or-a-list/17612
+   This discussion helped me on fixing the errors I get when trying to pass an
+   image to my model for prediction
