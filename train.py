@@ -34,10 +34,7 @@ def train_model(train_datasets, trainloader, validloader, model, epochs, learnin
     train_losses, test_losses = [], []
     for e in range(epochs):
         running_loss = 0
-        count = 1
         for inputs, labels in trainloader:
-            print(count)
-            count += 1
             step += 1
             # moving the inputs and labels to default device - useful if GPU is enabled
             inputs, labels = inputs.to(device), labels.to(device)
@@ -55,11 +52,8 @@ def train_model(train_datasets, trainloader, validloader, model, epochs, learnin
             # setting the gradients for validation to off to save memory and computations
             with torch.no_grad():
                 model.eval()
-                count = 1
                 # validation starts here
                 for inputs, labels in validloader:
-                    print(count)
-                    count += 1
                     # moving the inputs and labels to default device - useful if GPU is enabled
                     inputs, labels = inputs.to(device), labels.to(device)
                     output_p = model(inputs)
